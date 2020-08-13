@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-10">
+        <h1 class="mt-5">Movie Information</h1>
+    </div>
+    <div class="col-md-2">
+        <a [routerLink]="['/finder']" class="btn btn-primary stretched-link mt-5 ">Back</a>            
+    </div>
+</div>
+
+<div class="row">
+    <div class="card col-md-4">
+        <img src="{{movie.Poster}}" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">{{movie.Title}}</h5>
+            <p class="card-text">{{movie.Plot}}</p>            
+        </div>
+    </div>
+    <div class="col-md-8">
+        <ul class="list-unstyled mb-0">
+            <li>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Title:</span> {{movie.Title}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Year:</span> {{movie.Year}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Type:</span> {{movie.Type}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Rated:</span> {{movie.Rated}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Released:</span> {{movie.Released}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Runtime:</span> {{movie.Runtime}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Genre:</span> {{movie.Genre}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Director:</span> {{movie.Director}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Writer:</span> {{movie.Writer}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Actors:</span> {{movie.Actors}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Plot:</span> {{movie.Plot}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Language:</span> {{movie.Language}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Country:</span> {{movie.Country}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Awards:</span> {{movie.Awards}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Ratings:</span>
+                    <span *ngFor="let rating of movie.Ratings">{{rating.Source}} ({{rating.Value}})</span>
+                </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Metascore:</span> {{movie.Metascore}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">imdbRating:</span> {{movie.imdbRating}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">imdbVotes:</span> {{movie.imdbVotes}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">imdbID:</span> {{movie.imdbID}} </p>                
+                <p class="mb-2"><span class="font-weight-bold mr-2">DVD:</span> {{movie.DVD}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">BoxOffice:</span> {{movie.BoxOffice}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Production:</span> {{movie.Production}} </p>
+                <p class="mb-2"><span class="font-weight-bold mr-2">Website:</span> {{movie.Website}} </p>
+                
+            </li>
+        </ul>
+    </div>
+</div>
+
+

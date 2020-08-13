@@ -1,0 +1,42 @@
+<h1 class="mt-5">Let's find some movies</h1>
+
+<form [formGroup]="searchForm" (ngSubmit)="searchSubmit()"> 
+    <div class="form-row">        
+        <div class="form-group col-md-6">
+            <label for="inputTitle">Title</label>
+            <input type="text" class="form-control" id="inputTitle" formControlName="title" placeholder="Movie title to search for">
+        </div>        
+    </div>
+    <div class="form-row">        
+        <div class="form-group col-md-4">
+            <label for="inputType">Type</label><br />
+            <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" id="inputType" formControlName="type">                            
+                <label ngbButtonLabel class="btn-primary" *ngFor="let type of types">
+                    <input ngbButton type="radio" value="{{type.value}}"> {{type.name}}
+                </label>
+            </div>            
+        </div>        
+        <div class="form-group col-md-2">
+            <label for="inputYear">Year</label>
+            <input type="text" class="form-control" id="inputYear" formControlName="year" placeholder="Year of release">
+        </div>
+    </div>    
+    <button type="submit" class="btn btn-primary" [disabled]="!searchForm.valid">Search</button>
+</form>
+
+<br />
+<br />
+<div *ngIf="movies">    
+    <div class="row">
+        <div class="card col-md-2" *ngFor="let movie of movies">
+            <img src="{{movie.Poster}}" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{movie.Title}}</h5>
+                <p class="card-text">{{movie.Plot}}</p>
+                <a [routerLink]="['/movie', movie.imdbID]" class="btn btn-primary stretched-link">View Profile</a>            
+            </div>
+        </div>   
+        <ngb-pagination [collectionSize]="collectionSize" [pageSize]="pageSize" [(page)]="page" aria-label="Default pagination" (pageChange)="searchPage()"></ngb-pagination>    
+    </div>
+</div>
+
